@@ -88,3 +88,5 @@ module IceCube
     @compatibility = version
   end
 end
+
+require 'ice_cube/railtie' if defined?(Rails)
