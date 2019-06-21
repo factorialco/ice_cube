@@ -218,6 +218,12 @@ describe IceCube::Schedule, 'to_s' do
       expect(IceCube::I18n.backend).to eq(I18n)
     end
 
+    it "should not override I18n translation keys" do
+      date = Date.parse("2019-06-21")
+
+      expect(I18n.l(date, format: "%b", locale: :fr)).to eq "juin"
+    end
+
     it_behaves_like "to_s in English"
   end
 
