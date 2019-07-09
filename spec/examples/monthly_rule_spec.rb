@@ -173,5 +173,8 @@ module IceCube
       end
     end
 
+    it 'returns the rule name as a symbol' do
+      expect(IceCube::Rule.monthly.to_sym).to eq(:monthly)
+    end
   end
 end

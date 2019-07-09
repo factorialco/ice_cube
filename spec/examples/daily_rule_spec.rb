@@ -138,6 +138,8 @@ module IceCube
       end
     end
 
-
+    it 'returns the rule name as a symbol' do
+      expect(IceCube::Rule.daily(2).to_sym).to eq(:daily)
+    end
   end
 end
