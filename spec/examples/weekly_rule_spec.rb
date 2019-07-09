@@ -382,5 +382,8 @@ module IceCube
       end
     end
 
+    it 'returns the rule name as a symbol' do
+      expect(IceCube::Rule.weekly.to_sym).to eq(:weekly)
+    end
   end
 end

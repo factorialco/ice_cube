@@ -664,6 +664,12 @@ describe IceCube::Schedule do
     end
   end
 
+  it 'should sort rules by type' do
+    ordered = [IceCube::Rule.monthly, IceCube::Rule.weekly.day(:friday), IceCube::Rule.daily(5)].sort
+
+    expect(ordered).to eq [IceCube::Rule.daily(5), IceCube::Rule.weekly.day(:friday), IceCube::Rule.monthly]
+  end
+
   def quick_attempt_test
     time = Time.now
     10.times do

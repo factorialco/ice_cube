@@ -3,6 +3,7 @@ require 'yaml'
 module IceCube
 
   class Rule
+    include Comparable
 
     INTERVAL_TYPES = [
       :secondly, :minutely, :hourly,
@@ -22,6 +23,15 @@ module IceCube
     def ==(other)
       return false unless other.is_a? Rule
       hash == other.hash
+    end
+
+    # Return the rule name as a symbol
+    def to_sym
+      self.class.name.demodulize.gsub('Rule', '').downcase.to_sym
+    end
+
+    def <=>(other)
+      INTERVAL_TYPES.index(to_sym) <=> INTERVAL_TYPES.index(other.to_sym)
     end
 
     def hash

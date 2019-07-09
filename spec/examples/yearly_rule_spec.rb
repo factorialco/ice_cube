@@ -97,4 +97,7 @@ describe IceCube::YearlyRule do
     expect(schedule.occurrences(Time.utc(2014, 12, 31))).to eq days_of_year
   end
 
+  it 'returns the rule name as a symbol' do
+    expect(IceCube::Rule.yearly.to_sym).to eq(:yearly)
+  end
 end
